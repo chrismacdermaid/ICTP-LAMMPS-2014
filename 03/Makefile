@@ -7,3 +7,6 @@ clean:
 
 encode:
 	/bin/sh ./03-encode.sh  
+
+encode-vmd:
+	/bin/sh .03-encode-vmd.sh
