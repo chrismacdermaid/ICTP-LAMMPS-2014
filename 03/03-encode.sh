@@ -10,5 +10,5 @@ done
 
 # encode using ffmpeg
 rm -f movie-03.mp4
-ffmpeg -r 25 -b 2400k -i snap-movie.%05d.jpg movie-02.mp4 \
+ffmpeg -r 25 -b 2400k -i snap-movie.%05d.jpg movie-03.mp4 \
   && rm -f snap-movie*.jpg
