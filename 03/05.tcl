@@ -63,4 +63,4 @@ pbc set {100.0 100.0 100.0 90.0 90.0 90.0}
 topo writelammpsdata data.chain angle
 
 # done. now exit vmd
-quit
+#quit

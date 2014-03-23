@@ -141,4 +141,4 @@ if {[expr {abs($totq)}] > 0.0005} {
 }
 
 # done. now exit vmd
-quit
+#quit

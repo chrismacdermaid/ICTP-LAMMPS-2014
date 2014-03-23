@@ -89,4 +89,4 @@ animate write pdb 64xmethane.pdb
 animate write psf 64xmethane.psf
 
 # done. now exit vmd
-quit
+#quit

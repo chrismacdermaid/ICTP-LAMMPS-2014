@@ -68,4 +68,4 @@ topo writelammpsdata data.spiral angle
 animate write psf spiral.psf
 
 # done. now exit vmd
-quit
+#quit
