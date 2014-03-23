@@ -41,5 +41,5 @@ set nframes [molinfo $molid get numframes]
 # Skip the first "junk" frame from lammpsdata
 for {set i 1} {$i < $nframes} {incr i} {
       render TachyonInternal\
-        [format "03.snap.%04d.tga" $i]
+        [format "snap-03.%04d.tga" $i]
 }
