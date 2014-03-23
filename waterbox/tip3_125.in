@@ -7,7 +7,7 @@ neigh_modify    every 2 delay 0 check yes
 units           real
 atom_style      full
 
-read_data       tip3_opt.data 
+read_data       tip3_125.data 
 include         tip3_125.param 
 
 kspace_style    pppm 1.0e-6
