@@ -1,0 +1,52 @@
+# 3d random polymer
+
+atom_style bond
+units lj
+
+read_data data.ab
+special_bonds fene
+
+# Step 1: soft potential push-off to remove overlaps
+
+pair_style	soft 1.12246
+pair_coeff	* * 0.0 1.12246
+
+# these have to match the data in def.chain.ab
+bond_style 	harmonic
+bond_coeff	1 50.0 0.97
+bond_coeff	2 50.0 1.17
+
+# make type 2 particles a bit heavier
+mass 2 1.5
+
+velocity	all create 0.45 2349852
+
+fix		1 all nve
+# use a crude implicit solvent model
+fix		2 all langevin 0.45 0.45 0.02 8742
+
+# use this to ramp up the height of the soft core repulsion
+variable	prefactor equal ramp(1.0,20.0)
+fix		3 all adapt 1 pair soft a * * v_prefactor
+
+thermo		50
+run		10000
+
+unfix		3
+unfix		2
+#undump d1
+
+neighbor 0.5 bin
+
+# Main run
+pair_style	lj/cut 5.0
+
+pair_coeff	1 1 1.0 1.0
+pair_coeff	1 2 1.1 1.122462
+pair_coeff	2 2 1.2 1.2
+thermo		1000
+
+reset_timestep	0
+#dump d1 all image 200 snap-03.*.jpg element element
+#dump_modify d1 pad 5 element N C
+run		60000

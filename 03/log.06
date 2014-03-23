@@ -1,0 +1,83 @@
+LAMMPS (26 May 2013-ICMS)
+WARNING: OMP_NUM_THREADS environment is not set. (../comm.cpp:100)
+  using 1 OpenMP thread(s) per MPI task
+  1 = max bonds/atom
+  1 = max angles/atom
+  orthogonal box = (-50 -50 -50) to (50 50 50)
+  1 by 1 by 1 MPI processor grid
+  11 atoms
+  10 bonds
+  9 angles
+  2 = max # of 1-2 neighbors
+  2 = max # of 1-3 neighbors
+  4 = max # of 1-4 neighbors
+  6 = max # of special neighbors
+  2 = max # of 1-2 neighbors
+  2 = max # of 1-3 neighbors
+  4 = max # of special neighbors
+Memory usage per processor = 4.50368 Mbytes
+Step Temp E_pair E_mol TotEng Press 
+       0          0.5            0    7.0148718      7.69669 6.3333333e-06 
+     100    3.1610443            0    3.3249281     7.635443 1.9865761e-05 
+Loop time of 0.0107219 on 1 procs (1 MPI x 1 OpenMP) for 100 steps with 11 atoms
+
+Section |  min time  |  avg time  |  max time  |%total |  #Thr
+--------------------------------------------------------------
+Pair    | 0.00026894 | 0.00026894 | 0.00026894 |  2.51 |  0.0x
+Bond    | 0.00062251 | 0.00062251 | 0.00062251 |  5.81 |  0.0x
+Neigh   | 0.0076909  | 0.0076909  | 0.0076909  | 71.73 |  1.3x
+Comm    | 0.0005343  | 0.0005343  | 0.0005343  |  4.98 |  0.0x
+Output  | 0.00016284 | 0.00016284 | 0.00016284 |  1.52 |  0.0x
+Modify  | 0.00057602 | 0.00057602 | 0.00057602 |  5.37 |  0.0x
+Other   |            | 0.0008664  |            |  8.08 |
+
+Nlocal:    11 ave 11 max 11 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:    0 ave 0 max 0 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:    0 ave 0 max 0 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 0
+Ave neighs/atom = 0
+Ave special neighs/atom = 3.45455
+Neighbor list builds = 10
+Dangerous builds = 10
+WARNING: Resetting reneighboring criteria during minimization (../min.cpp:173)
+Memory usage per processor = 5.19108 Mbytes
+Step Temp E_pair E_mol TotEng Press 
+     100    3.1610443            0    3.3249281     7.635443 1.9865761e-05 
+     177    3.1610443 -0.0070762519 0.00070969797    4.3041484 3.1519489e-05 
+Loop time of 0.0155768 on 1 procs (1 MPI x 1 OpenMP) for 77 steps with 11 atoms
+
+Minimization stats:
+  Stopping criterion = energy tolerance
+  Energy initial, next-to-last, final = 
+         3.32492812795  -0.00636616659073  -0.00636655395334
+  Force two-norm initial, final = 73.0098 0.691036
+  Force max component initial, final = 31.2737 0.342164
+  Final line search alpha, max atom move = 8.90891e-06 3.04831e-06
+  Iterations, force evaluations = 77 404
+
+Section |  min time  |  avg time  |  max time  |%total |  #Thr
+--------------------------------------------------------------
+Pair    | 0.0011787  | 0.0011787  | 0.0011787  |  7.57 |  1.7x
+Bond    | 0.0023086  | 0.0023086  | 0.0023086  | 14.82 |  0.9x
+Neigh   | 0.0075231  | 0.0075231  | 0.0075231  | 48.30 |  0.7x
+Comm    | 0.0020936  | 0.0020936  | 0.0020936  | 13.44 |  1.4x
+Output  | 0          | 0          | 0          |  0.00 |  1.0x
+Modify  | 0          | 0          | 0          |  0.00 |  1.0x
+Other   |            | 0.002473   |            | 15.88 |
+
+Nlocal:    11 ave 11 max 11 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:    0 ave 0 max 0 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:    6 ave 6 max 6 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 6
+Ave neighs/atom = 0.545455
+Ave special neighs/atom = 3.45455
+Neighbor list builds = 11
+Dangerous builds = 0

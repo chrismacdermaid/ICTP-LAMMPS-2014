@@ -1,0 +1,36 @@
+# 3d rocksalt-like structure with lj and charge
+# use LAMMPS to create data file for use in VMD
+
+units		real         # kcal/mol, Angstrom, picoseconds
+atom_style	charge       # atomic + charge
+
+# lattice for Na+ ions and box
+lattice		fcc  6.0 origin 0.0 0.0 0.0 
+region		r1   block -3 3 -3 3 -3 3
+create_box	2 r1
+
+# fill box with Na+ ions according to lattice positions
+create_atoms	1 box
+
+# new lattice for Cl- ions shifted by half box diagonal
+lattice		fcc  6.0 origin 0.5 0.5 0.5 
+create_atoms    2 box
+
+mass		1 22.989770
+mass		2 35.453
+set type 1 charge  1.0
+set type 2 charge -1.0
+
+group		na type 1
+group		cl type 2
+
+velocity	all create 800.0 12345 mom no rot no
+timestep        0.001
+
+# LJ with cutoff coulomb added
+pair_style	lj/cut/coul/cut 15.0 
+pair_coeff  1 1	 0.264 2.30
+pair_coeff  2 2  0.158 3.20
+pair_modify mix arithmetic
+
+write_data data.nacl

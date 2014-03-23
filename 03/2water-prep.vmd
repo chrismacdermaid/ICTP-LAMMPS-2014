@@ -1,0 +1,9 @@
+mol new 2water_mod.pdb
+topo retypebonds
+topo guessangles
+set osel [atomselect top {name OT}]
+set hsel [atomselect top {name HT}]
+$osel set charge -0.8472
+$hsel set charge 0.4236
+topo writelammpsdata data.2water-new full
+

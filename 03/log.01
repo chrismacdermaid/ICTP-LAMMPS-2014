@@ -1,0 +1,61 @@
+LAMMPS (26 May 2013-ICMS)
+WARNING: OMP_NUM_THREADS environment is not set. (../comm.cpp:100)
+  using 1 OpenMP thread(s) per MPI task
+  2 = max bonds/atom
+  1 = max angles/atom
+  orthogonal box = (-10 -10 -10) to (10 10 10)
+  1 by 1 by 1 MPI processor grid
+  6 atoms
+  4 bonds
+  2 angles
+  2 = max # of 1-2 neighbors
+  1 = max # of 1-3 neighbors
+  2 = max # of special neighbors
+  0 = # of size 2 clusters
+  0 = # of size 3 clusters
+  0 = # of size 4 clusters
+  2 = # of frozen angles
+Ewald initialization ...
+  G vector (1/distance) = 0.209063
+  estimated absolute RMS force accuracy = 0.000390599
+  estimated relative force accuracy = 1.17628e-06
+  KSpace vectors: actual max1d max3d = 128 4 364
+Memory usage per processor = 4.25846 Mbytes
+Step Temp E_pair E_mol TotEng Press 
+       0          300 -0.010678477            0    2.6720506   -429.52143 
+     100    211.75031  -0.17191027            0    1.7216521   0.20570856 
+     200    210.83602  -0.16402899            0    1.7213574   0.16952381 
+     300    196.54723  -0.03607269            0    1.7215372    1.3403785 
+     400    207.71258  -0.13593625            0     1.721519   0.55686969 
+     500    190.69405  0.016278106            0    1.7215463    1.8960357 
+     600     190.2023  0.020669495            0    1.7215403    1.8451918 
+     700    197.44696 -0.044128457            0    1.7215272    1.3331087 
+     800    191.10205  0.012618501            0    1.7215352    1.7134272 
+     900    213.92511  -0.19151254            0    1.7214978  -0.02119281 
+    1000    202.01837  -0.08502383            0    1.7215114   0.90325169 
+Loop time of 0.0708239 on 1 procs (1 MPI x 1 OpenMP) for 1000 steps with 6 atoms
+Performance: 1219.927 ns/day  0.020 hours/ns  14119.525 timesteps/s
+
+Section |  min time  |  avg time  |  max time  |%total |  #Thr
+--------------------------------------------------------------
+Pair    | 0.0058599  | 0.0058599  | 0.0058599  |  8.27 |  1.4x
+Bond    | 0.0026639  | 0.0026639  | 0.0026639  |  3.76 |  0.8x
+Kspace  | 0.038759   | 0.038759   | 0.038759   | 54.73 |  0.6x
+Neigh   | 0.00035    | 0.00035    | 0.00035    |  0.49 |  0.0x
+Comm    | 0.0070422  | 0.0070422  | 0.0070422  |  9.94 |  0.6x
+Output  | 0.0005331  | 0.0005331  | 0.0005331  |  0.75 |  1.9x
+Modify  | 0.0071867  | 0.0071867  | 0.0071867  | 10.15 |  1.7x
+Other   |            | 0.008429   |            | 11.90 |
+
+Nlocal:    6 ave 6 max 6 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:    111 ave 111 max 111 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:    24 ave 24 max 24 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 24
+Ave neighs/atom = 4
+Ave special neighs/atom = 2
+Neighbor list builds = 22
+Dangerous builds = 0

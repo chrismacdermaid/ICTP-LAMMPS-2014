@@ -1,0 +1,13 @@
+LAMMPS (26 May 2013-ICMS)
+WARNING: OMP_NUM_THREADS environment is not set. (../comm.cpp:100)
+  using 1 OpenMP thread(s) per MPI task
+Lattice spacing in x,y,z = 6 6 6
+Created orthogonal box = (-18 -18 -18) to (18 18 18)
+  1 by 1 by 1 MPI processor grid
+Created 864 atoms
+Lattice spacing in x,y,z = 6 6 6
+Created 864 atoms
+  864 settings made for charge
+  864 settings made for charge
+864 atoms in group na
+864 atoms in group cl
