@@ -12,10 +12,11 @@ package require pbctools
 
 # Load the data file and trajectory dcd
 set molid [topo readlammpsdata data.ab]
-mol addfile 03.dcd type dcd waitfor all 
+mol addfile 03.dcd type dcd waitfor all -molid $molid 
 
 # Set the representation, delete the initial representation
 # created by vmd
+
 mol delrep 0 top 
 mol representation CPK 2.0 0.30 10.0 10.0
 mol color Name
@@ -27,7 +28,8 @@ mol addrep top
 # and rotate axes a bit, set the background
 # to white
 display resetview
-display projection orthoscopic 
+display projection orthographic
+display depthcue off
 display height 5 
 rotate x by -45; rotate y by 45; rotate z by 45
 color Display Background white
@@ -36,7 +38,7 @@ color Display Background white
 pbc box_draw -center origin
 
 # Get the number of frames
-animate delete 0 0; # Delete first frame from topotools 
+animate delete beg 0 end 0; # Delete first frame from topotools 
 set nframes [molinfo $molid get numframes] 
 
 # Loop over frames, calling render.
