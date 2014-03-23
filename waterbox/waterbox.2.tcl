@@ -8,7 +8,7 @@ source waterbox.1.tcl
 source rand.tcl
 
 ## Randomize the orientations of the water molecules
-proc randomize {} {
+proc randomize {{flag 0}} {
 
     set molid [makebox] 
 
@@ -59,7 +59,9 @@ proc randomize {} {
         $sel($w) delete
     }
 
-    animate write pdb tip3_rand.pdb $molid
+    if {$flag} {
+      animate write pdb tip3_rand.pdb $molid
+    }
 }
 
 
