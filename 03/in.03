@@ -1,4 +1,5 @@
 # 3d random polymer
+# Slightly modified from Axel
 
 atom_style bond
 units lj
@@ -47,6 +48,13 @@ pair_coeff	2 2 1.2 1.2
 thermo		1000
 
 reset_timestep	0
+## Make some nice graphics
 #dump d1 all image 200 snap-03.*.jpg element element
-#dump_modify d1 pad 5 element N C
+#dump d1 all movie 200 movie-03-2.mpg element element size 1024 1024 zoom 1.5 
+#dump_modify d1 pad 1 element N O
+
+## Write out a trajectory 
+#dump d2 all dcd 200 03.dcd
+#dump_modify d2 unwrap yes
+
 run		60000
