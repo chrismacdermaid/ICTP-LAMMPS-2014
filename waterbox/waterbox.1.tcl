@@ -3,6 +3,9 @@
 
 source waterbox.0.tcl
 
+# Create a waterbox by replicating a single TIP3
+# molecule 5x5x5 and sett bonds/angles. Create
+# lammps input .data file
 proc makebox {} {
 
     # We require the package TopoTools to replicate our
@@ -43,7 +46,7 @@ proc makebox {} {
         topo addangle $id2 $id1 $id3; # Add angle H1-O-H2
     }
 
-    ## Updated VMDs and internal data structures
+    ## Updated VMD's and internal data structures
     mol reanalyze $newmol
     topo -molid $newmol retypebonds
     topo -molid $newmol retypeangles

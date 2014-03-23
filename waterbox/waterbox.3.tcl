@@ -1,18 +1,22 @@
-# To load this file in the vmd console/tk con type
+# To load this file in the vmd console/tkcon type
 # 'source waterbox.3.tcl' 
+# call 'optimize' to run 
 
 ## Requires routines for building the waterbox
-source waterbox.1.tcl
+## and the randomizer
+source waterbox.2.tcl
 
 ## A gaussian random number generator
 source rand.tcl
 
 # Attempt crude Monte-Carlo optimization of
-# water using non-bonded interactions.
-# optimize flag 
+# water using non-bonded interactions evalued with
+# VMD's measure energy command.
+## 'optimize 1' will produce a trajectory
 proc optimize {{dump 0}} {
 
-    set molid [makebox] 
+    ## Crete molecule and randomize the system a bit
+    set molid [randomize]
 
     ## Get all of our residue numbers
     ## "residue" is a unique number corresponding
@@ -27,7 +31,7 @@ proc optimize {{dump 0}} {
     set nwaters [llength $unqwaters]
 
     ## Apply nonbonded parameters to all atoms using the
-    ## empty occupancy and beta properties
+    ## empty occupancy and beta property fields
 
     # !TIP3P LJ parameters
     # HT       0.0       -0.046     0.2245
@@ -85,7 +89,7 @@ proc optimize {{dump 0}} {
     }
 
     puts "optimizing..."
-    for {set iter 0} {$iter < 5000} {incr iter} {
+    for {set iter 0} {$iter < 500} {incr iter} {
 
         ## generate a random number between 0 and nwaters-1
         set n [expr {int(rand() * $nwaters)}]
@@ -134,7 +138,11 @@ proc optimize {{dump 0}} {
             set Er($w) $E
             set Et [expr {$Et + $dE}]
             if {$dump} {animate dup $molid}
+
+            # Force the display to update
+            display update
         } else {$sel($w) set {x y z} $xyz}
+
     }
 
     ## Cleanup our selections
@@ -142,10 +150,16 @@ proc optimize {{dump 0}} {
         $sel($w) delete
     }
 
-    ## Write out our trajectory, pdb and optimized lammps data file
-    if {$dump} {animate write dcd tip3_opt.dcd}
-    set nframes [expr {[molinfo $molid get numframes] - 1}]
-    animate write pdb tip3_opt.pdb beg $nframes end $nframes $molid
+    set fname tip3_125_opt 
 
-    topo -molid $molid writelammpsdata tip3_opt\.data full
+    ## Write out our trajectory, pdb and optimized lammps data file
+    if {$dump} {animate write dcd $fname\.dcd}
+    
+    set nframes [expr {[molinfo $molid get numframes] - 1}]
+    animate write pdb $fname\.pdb beg $nframes end $nframes $molid
+    
+    topo -molid $molid writelammpsdata $fname\.data full
+
+    ## Return optimized mol
+    return $molid 
 }
